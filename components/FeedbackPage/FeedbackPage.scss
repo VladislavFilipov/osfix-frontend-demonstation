@@ -1,0 +1,35 @@
+@import "../../../mixins.scss";
+@use "sass:map";
+
+$colors: (
+    "urgent": #e98f8f,
+    "completed": #9edd9e,
+    "in-progress": #f1f19a,
+    "testing": #6dced1,
+    "waiting": #93cdfc,
+);
+
+$selectors: map-keys($colors);
+
+@mixin setSelectColor($selector) {
+    &-select_#{$selector} {
+        .select-wrap {
+            // background-color: $color;
+            background-color: map-get($colors, $selector);
+        }
+    }
+}
+
+.fdb-page {
+    & .list-item {
+        &__body {
+            grid-template-columns: 180px 180px 150px 1fr max-content;
+        }
+
+        &__status {
+            @for $i from 0 to length($selectors) {
+                @include setSelectColor(nth($selectors, $i + 1));
+            }
+        }
+    }
+}

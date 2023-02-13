@@ -1,0 +1,57 @@
+@import "../../../mixins.scss";
+
+.list {
+    min-height: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: max-content 1fr;
+
+    &__actions-wrap {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin: 0;
+    }
+
+    &__btns {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 10px;
+    }
+
+    &__btn {
+        @include buttonType1();
+        height: 35px;
+    }
+
+    .list-filters {
+        grid-column: 1/3;
+        margin: 0 -30px;
+        padding: 0 30px 20px;
+        width: calc(100% + 60px);
+        border: none;
+    }
+
+    &__items {
+        margin: 0 -30px;
+        padding: 20px 0;
+        width: calc(100% + 60px);
+        background-color: $gray240;
+    }
+
+    &__empty-text {
+        margin: 20px 30px;
+        @include setFont(16px, 500, 20px);
+    }
+
+    .list-item {
+        @include listItemStyle();
+
+        &__container {
+            &:hover {
+                background-color: $gray250;
+            }
+        }
+    }
+}

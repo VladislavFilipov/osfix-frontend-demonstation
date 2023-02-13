@@ -1,0 +1,24 @@
+@import "../../../mixins.scss";
+
+.form {
+    &__field {
+        margin-bottom: 20px;
+    }
+    &__btns {
+        margin: 30px auto 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .form-error {
+        &_loading {
+            margin-bottom: 20px;
+        }
+
+        &_action {
+            margin-top: 20px;
+        }
+    }
+}

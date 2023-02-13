@@ -1,0 +1,106 @@
+@import "../../../mixins.scss";
+
+.discussion-page {
+    .page {
+        &__content {
+            background-color: $gray245;
+            margin: 0 -30px;
+            padding: 20px 30px;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+    }
+}
+
+.disc-chat {
+    background-color: white;
+    border-radius: 6px;
+    padding: 20px;
+
+    display: grid;
+    grid-template-rows: max-content 1fr max-content;
+    height: calc(100vh - 160px);
+
+    &__title {
+        @include setFont(20px, 500, 24px);
+        margin-bottom: 10px;
+    }
+
+    &__list-wrap {
+        overflow-y: auto;
+        @include setScrollbar();
+        margin-right: -5px;
+        padding-right: 5px;
+    }
+
+    &__list {
+        height: max-content;
+    }
+
+    &__input {
+        display: grid;
+        grid-template-columns: 1fr max-content;
+        align-items: flex-end;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    .disc-msg {
+        display: grid;
+        grid-template-columns: 1fr max-content;
+        gap: 5px;
+        margin-top: 10px;
+
+        background-color: $gray245;
+        padding: 10px;
+        border-radius: 6px;
+        max-width: 70%;
+
+        &_cur-user {
+            background-color: #dcf3ff;
+            margin-left: auto;
+            position: relative;
+
+            .disc-msg__close {
+                display: none;
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                left: -30px;
+                top: 0;
+                cursor: pointer;
+
+                div {
+                    transform: rotate(45deg);
+                    @include setFont(25px, 500, 25px);
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+
+            &:hover {
+                .disc-msg__close {
+                    display: block;
+                }
+            }
+        }
+
+        &__author {
+            @include setFont(14px, 600, 18px);
+        }
+
+        &__time {
+            @include setFont(13px, 500, 18px, $gray180);
+        }
+
+        &__text {
+            word-break: break-word;
+            grid-column: 1/3;
+            @include setFont(15px, 400, 18px);
+        }
+    }
+}

@@ -1,0 +1,72 @@
+@import "../../../../mixins.scss";
+
+.discussion-form {
+    height: 100%;
+    background-color: white;
+    border-radius: 6px;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start !important;
+    height: calc(100vh - 160px);
+
+    .form {
+        &__info {
+            margin-bottom: 20px;
+
+            &-item {
+                display: grid;
+                grid-template-columns: 49px 1fr;
+                gap: 20px;
+
+                & > div {
+                    &:first-child {
+                        @include setFont(14px, 600, 18px);
+                        // width: 70px;
+                        margin-bottom: 5px;
+                    }
+
+                    &:last-child {
+                        @include setFont(16px, 400, 20px);
+                    }
+                }
+            }
+        }
+
+        &__subject {
+            div:last-child {
+                white-space: pre-wrap;
+                word-break: break-word;
+            }
+        }
+
+        &__field {
+            margin-bottom: 15px;
+
+            &_text {
+                flex: 1;
+                overflow: auto;
+                @include setScrollbar();
+
+                .form-input-text,
+                label {
+                    height: 100%;
+                }
+
+                textarea {
+                    flex-grow: 1;
+                }
+
+                & > div {
+                    white-space: pre-wrap;
+                    word-break: break-word;
+                }
+            }
+        }
+    }
+
+    .text-title {
+        @include setFont(14px, 600, 18px);
+    }
+}

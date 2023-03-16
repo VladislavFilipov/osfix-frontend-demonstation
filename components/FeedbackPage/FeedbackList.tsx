@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { FC, useState } from "react";
 
 import Button from "Components/New/Button/Button";
 import ListLayout from "Components/_shared/ListLayout";
@@ -15,9 +15,13 @@ import { feedbackListFilters, FEEDBACK_BASE_CLASS } from "./objects";
 
 import ModalWindow from "../ModalWindow/ModalWindow";
 
-import { IDiscussion, IDiscussionWithSearch } from "Types/feedback.types";
+import { IDiscussionWithSearch } from "Types/feedback";
 
-const FeedbackList = ({ feedback, updateList }) => {
+interface IFeedbackListProps {
+    feedback: IDiscussionWithSearch;
+}
+
+const FeedbackList: FC<IFeedbackListProps> = ({ feedback }) => {
     const [showConfirm] = useWindowFuncs("confirm");
     const pickedId = usePicked(feedback);
 
@@ -41,7 +45,7 @@ const FeedbackList = ({ feedback, updateList }) => {
 
     return (
         <>
-            <ListLayout<IDiscussion>
+            <ListLayout<IDiscussionWithSearch>
                 baseClass={FEEDBACK_BASE_CLASS}
                 list={feedback}
                 withSearch
@@ -77,7 +81,6 @@ const FeedbackList = ({ feedback, updateList }) => {
                     <NewDisc
                         onCreate={() => {
                             setModal({ show: false, data: null });
-                            updateList();
                         }}
                     />
                 </ModalWindow>

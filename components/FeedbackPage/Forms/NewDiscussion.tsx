@@ -17,7 +17,7 @@ import useUserContext from "Utils/hooks/useUserContext";
 import "./DiscussionForm.scss";
 
 import { IErrorResponse } from "Types/errors";
-import { IDiscussionNoId } from "Types/feedback.types";
+import { IDiscussionNoId } from "Types/feedback";
 
 interface INewDiscussionProps {
     onCreate: () => void;

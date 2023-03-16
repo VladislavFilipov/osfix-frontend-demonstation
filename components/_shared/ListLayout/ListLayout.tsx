@@ -35,14 +35,8 @@ function ListLayout<Type>({
     searchPlaceholder,
     emptyText,
 }: IListLayoutProps<Type>) {
-    const [filteredList, setFilteredList] = useState(null);
-    useEffect(() => {
-        if (list) {
-            setFilteredList(list);
-        }
-    }, [list]);
+    const [filteredList, setActiveFilters, setSearchStr] = useSearchAndFilters<Type>(list, filters);
 
-    const [setActiveFilters, setSearchStr] = useSearchAndFilters(list, setFilteredList);
     if (!filteredList) return <Loading />;
     return (
         <div className={`list ${baseClass}-list`}>

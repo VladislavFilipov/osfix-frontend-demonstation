@@ -1,6 +1,6 @@
 import * as yup from "yup";
 
-import { IDiscussion } from "Types/feedback.types";
+import { IDiscussion } from "Types/feedback";
 
 const duscussionYupSchema: yup.SchemaOf<IDiscussion> = yup
     .object({

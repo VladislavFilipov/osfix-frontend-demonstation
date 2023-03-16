@@ -1,6 +1,6 @@
-import { useContext } from "react";
+import { FC, useContext } from "react";
 
-import { Switch, useRouteMatch, Link, NavLink } from "react-router-dom";
+import { Switch, useRouteMatch, NavLink } from "react-router-dom";
 
 import { feedbackRoutes, FEEDBACK_BASE_CLASS } from "Components/New/FeedbackPage/objects";
 import PrivateRoute from "Components/PrivateRoute/PrivateRoute";
@@ -17,7 +17,7 @@ import UserContext from "../../../App";
 
 import { IErrorResponse } from "Types/errors";
 
-const FeedbackPage = () => {
+const FeedbackPage: FC = () => {
     const userContext = useContext(UserContext);
 
     const { data: feedback, error, isLoading } = API.useGetFeedbackQuery({
@@ -66,7 +66,6 @@ const FeedbackPage = () => {
                         path={`${path}${route.path}`}
                         component={FeedbackList}
                         feedback={feedback && filterFeedbackByPage(route)}
-                        updateList={() => {}}
                     />
                 ))}
             </Switch>

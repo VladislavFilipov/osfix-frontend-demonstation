@@ -10,7 +10,7 @@ import {
     IDiscussionMessageNoId,
     IDiscussionNoId,
     IDiscussionWithSearch,
-} from "Types/feedback.types";
+} from "Types/feedback";
 
 const FEEDBACK_TAG = "Feedback";
 const MESSAGES_TAG = "Messages";

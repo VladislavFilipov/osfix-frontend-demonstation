@@ -19,7 +19,7 @@ import { useWindowFuncs } from "Utils/hooks/useWindowConfirm";
 import "./DiscussionForm.scss";
 
 import { IErrorResponse } from "Types/errors";
-import { IDiscussion } from "Types/feedback.types";
+import { IDiscussion } from "Types/feedback";
 
 const EditDiscussion: FC<{ discId: number }> = ({ discId }) => {
     const userContext = useUserContext();

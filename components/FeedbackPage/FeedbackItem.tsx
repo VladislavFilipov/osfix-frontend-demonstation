@@ -17,7 +17,7 @@ import { FEEDBACK_BASE_CLASS, normalizedDiscStatuses } from "./objects";
 import FormSelectInline from "../FormSelect/FormSelectInline";
 
 import { IErrorResponse } from "Types/errors";
-import { IDiscussionWithSearch } from "Types/feedback.types";
+import { IDiscussionWithSearch } from "Types/feedback";
 
 interface IFeedbackItemProps {
     fdb: IDiscussionWithSearch;
